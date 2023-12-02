@@ -30,10 +30,9 @@ public static partial class Day2
         int result = 0;
         foreach (var game in InputHandler.GetContent("day2.txt"))
         {
-            var maxBlueNumber = MyBlueRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).DefaultIfEmpty(0).Max();
-            var maxGreenNumber = MyGreenRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).DefaultIfEmpty(0).Max();
-            var maxRedNumber = MyRedRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).DefaultIfEmpty(0).Max();
-            result += maxBlueNumber * maxGreenNumber * maxRedNumber;
+            result += MyBlueRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).DefaultIfEmpty(0).Max() *
+                MyGreenRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).DefaultIfEmpty(0).Max() *
+                MyRedRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).DefaultIfEmpty(0).Max();
         }
         return result;
     }
