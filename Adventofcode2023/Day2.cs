@@ -13,7 +13,7 @@ public static partial class Day2
         {
             if (MyRedRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).Any(num => num > 12) ||
                 MyGreenRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).Any(num => num > 13) ||
-                MyBluRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).Any(num => num > 14))
+                MyBlueRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).Any(num => num > 14))
             {
                 iter++;
             }
@@ -27,11 +27,18 @@ public static partial class Day2
     }
     public static int SolvePart2()
     {
-        return 0;
+        int result = 0;
+        foreach (var game in InputHandler.GetContent("day2.txt"))
+        {
+            var maxBlueNumber = MyBlueRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).DefaultIfEmpty(0).Max();
+            var maxGreenNumber = MyGreenRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).DefaultIfEmpty(0).Max();
+            var maxRedNumber = MyRedRegex().Matches(game).Select(m => int.Parse(m.Groups[1].Value)).DefaultIfEmpty(0).Max();
+            result += maxBlueNumber * maxGreenNumber * maxRedNumber;
+        }
+        return result;
     }
-
     [GeneratedRegex(@"\b(\d+)\sblue\b")]
-    private static partial Regex MyBluRegex();
+    private static partial Regex MyBlueRegex();
     [GeneratedRegex(@"\b(\d+)\sgreen\b")]
     private static partial Regex MyGreenRegex();
     [GeneratedRegex(@"\b(\d+)\sred\b")]
