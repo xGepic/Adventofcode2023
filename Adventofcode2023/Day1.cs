@@ -9,7 +9,7 @@ public static partial class Day1
     public static int SolvePart1()
     {
         int result = 0;
-        foreach (var item in InputHandler.GetContent())
+        foreach (var item in InputHandler.GetContent("day1.txt"))
         {
             string firstNumber = "";
             string lastNumber = "";
@@ -30,7 +30,7 @@ public static partial class Day1
     public static int SolvePart2()
     {
         int result = 0;
-        foreach (var item in InputHandler.GetContent())
+        foreach (var item in InputHandler.GetContent("day1.txt"))
         {
             string firstNumber = "";
             string lastNumber = "";

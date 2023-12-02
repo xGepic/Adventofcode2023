@@ -4,7 +4,7 @@ class AOC
 {
     static void Main()
     {
-        Console.WriteLine("Part 1: " + Day1.SolvePart1());
-        Console.WriteLine("Part 2: " + Day1.SolvePart2());
+        Console.WriteLine("Part 1: " + Day2.SolvePart1());
+        Console.WriteLine("Part 2: " + Day2.SolvePart2());
     }
 }
