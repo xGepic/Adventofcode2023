@@ -62,7 +62,10 @@ public class Day3
             var digits = new List<int>();
             for (var col = 0; col < input[row].Length; col++)
             {
-                if (input[row][col] == '.') { continue; }
+                if (input[row][col] == '.')
+                {
+                    continue;
+                }
                 if (int.TryParse(input[row][col].ToString(), out var digit))
                 {
                     digits.Add(digit);
